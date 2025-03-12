@@ -1,3 +1,4 @@
-from django.shortcuts import render
+from django.http.response import HttpResponse, JsonResponse, FileResponse
 
-# Create your views here.
+def faq(request):
+    return HttpResponse("You can read frequently asked question in this page")

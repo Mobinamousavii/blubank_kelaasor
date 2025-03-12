@@ -1,3 +1,4 @@
-from django.shortcuts import render
+from django.http.response import HttpResponse, JsonResponse, FileResponse
 
-# Create your views here.
+def account_opening(request):
+    return HttpResponse("You can open your acount here.")

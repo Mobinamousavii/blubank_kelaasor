@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.http.response import HttpResponse
 
-# Create your views here.
+def services(request):
+    return HttpResponse("choose your service")
+
+def get_service(request, service):
+    return HttpResponse(f"This page is for {service}.")
