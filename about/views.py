@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.http.response import HttpResponse, JsonResponse, FileResponse
 
-# Create your views here.
+def about(request):
+    return HttpResponse("You can read about us in this page.")
+
