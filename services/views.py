@@ -10,36 +10,3 @@ def services(request):
 def get_service(request, service):
     return HttpResponse(f"This page is for {service}.")
 
-@csrf_exempt
-def login(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        
-        username = data.get("username"),
-        password = data.get("password"),
-
-        user = User.objects.filter(name = username).first()
-
-        if user is None:
-            return HttpResponse("the user was not found.")
-        
-        if not check_password(password,user.password):
-            return HttpResponse("your password is incorrect.")
-        
-        return HttpResponse(f"welcome {username}")
-
-    return HttpResponse ("please enter your username and password")
-
-@csrf_exempt
-def sign_up(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        User.objects.create(
-            username = data.get("username"),
-            password = data.get("password"),
-            phone = data.get("phone"),
-            email = data.get("email"),
-            national_id = data.get("national_id")
-        )
-        return HttpResponse("user created")
-
