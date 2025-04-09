@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "53e8ba84-8e3c-4a78-9090-1474d7557660",
+		"name": "blubank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42911541"
+	},
+	"item": [
+		{
+			"name": "sign_up blu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"mobina\",\n    \"password\": \"amir.999\",\n    \"phone\":\"09124056789\",\n    \"email\":\"mobdib@gmail.com\",\n    \"national_id\": \"93639\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/account_opening/sign-up",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"account_opening",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login blu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \"username\" : \"mobina\",\n    \"password\": \"amir.999\"\n    }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/account_opening/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"account_opening",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transfer blu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\":2,\n    \"sender_account_id\":1,\n    \"destination_account_id\":2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/services/transfer/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"services",
+						"transfer",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

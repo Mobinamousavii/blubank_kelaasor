@@ -10,11 +10,14 @@ def services(request):
 def get_service(request, service):
     return HttpResponse(f"This page is for {service}.")
 
-def transfer(request, sender_account_id, destination_account_id, amount):
+@csrf_exempt
+def transfer(request):
     if request.method == "POST":
+        data = json.loads(request.body)
+        amount = data.get("amount")
         try:
-            sender_account = BankAccount.objects.get(id=sender_account_id)
-            receiver_account = BankAccount.objects.get(id=destination_account_id)
+            sender_account = BankAccount.objects.get(id=data.get("sender_account_id"))
+            receiver_account = BankAccount.objects.get(id=data.get('destination_account_id'))
         except BankAccount.DoesNotExist:
                 return HttpResponse("not valid")
     
@@ -34,8 +37,9 @@ def transfer(request, sender_account_id, destination_account_id, amount):
         destination_account=receiver_account
     )
 
-    return JsonResponse('Transfer completed successfully')
+    return HttpResponse('Transfer completed successfully')
 
+@csrf_exempt
 def recharge(request, account_id, amount):
     if request.method == "POST":
         try:
