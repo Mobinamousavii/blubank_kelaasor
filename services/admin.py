@@ -1,3 +1,5 @@
+from django.contrib.admin import ModelAdmin
+from services.models import Transaction
 from django.contrib import admin
 
-# Register your models here.
+admin.site.register(Transaction)

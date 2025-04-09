@@ -40,10 +40,11 @@ INSTALLED_APPS = [
     'about',
     'accountopening',
     'blog',
-    'commecialcoperation',
+    'commercialcoperation',
     'faq',
     'loan',
     'services',
+
 ]
 
 MIDDLEWARE = [

@@ -1,3 +1,5 @@
+from django.contrib.admin import ModelAdmin
+from loan.models import Loan
 from django.contrib import admin
 
-# Register your models here.
+admin.site.register(Loan)

@@ -1,5 +1,6 @@
 from django.http.response import HttpResponse
-from services.models import User, Transaction, BankAccount
+from services.models import Transaction
+from accountopening.models import User, BankAccount
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.contrib.auth.hashers import check_password

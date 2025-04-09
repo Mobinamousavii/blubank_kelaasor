@@ -1,6 +1,4 @@
 from django.db import models
-from services.models import  Transaction
-
 class User(models.Model):
     username = models.CharField(max_length=100)
     email = models.EmailField(null=True , blank=True)
