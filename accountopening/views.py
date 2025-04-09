@@ -3,23 +3,22 @@ from services.models import Transaction
 from accountopening.models import User, BankAccount
 from django.views.decorators.csrf import csrf_exempt
 import json
-from django.contrib.auth.hashers import check_password
 
 @csrf_exempt
 def login(request):
     if request.method == "POST":
         data = json.loads(request.body)
         
-        username = data.get("username"),
-        password = data.get("password"),
+        username = data.get("username")
+        password = data.get("password")
 
-        user = User.objects.filter(name = username).first()
+        user = User.objects.get(username = username)
 
         if user is None:
             return HttpResponse("the user was not found.")
         
-        if not check_password(password,user.password):
-            return HttpResponse("your password is incorrect.")
+        if user.password != password:
+            return HttpResponse("Your password is incorrect.")
         
         return HttpResponse(f"welcome {username}")
 
